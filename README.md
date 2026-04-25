@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   # Smart Waste Management Platform
 
@@ -9,3 +10,6 @@
 
   Run `npm run dev` to start the development server.
   
+=======
+# Smart_Waste_Management
+>>>>>>> 6e09f17f99f325b29ea9e1cd5723027e1bdf3274
