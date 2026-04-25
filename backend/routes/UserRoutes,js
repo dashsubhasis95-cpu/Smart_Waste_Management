@@ -1,0 +1,69 @@
+// routes/userRoutes.js
+
+import express from "express";
+
+import {
+  getUserProfile,
+  updateUserProfile,
+  getLeaderboard,
+  getUserRewards,
+  getUserWasteHistory,
+} from "../controllers/userController.js";
+
+import {
+  protect,
+  adminOnly,
+} from "../middleware/authMiddleware.js";
+
+const router = express.Router();
+
+/*
+    @route   GET /api/users/profile
+*/
+
+router.get("/profile", protect, getUserProfile);
+
+/*
+    @route   PUT /api/users/profile
+*/
+
+router.put("/profile", protect, updateUserProfile);
+
+/*
+    @route   GET /api/users/leaderboard
+*/
+
+router.get("/leaderboard", getLeaderboard);
+
+/*
+    @route   GET /api/users/rewards
+*/
+
+router.get("/rewards", protect, getUserRewards);
+
+/*
+    @route   GET /api/users/waste-history
+*/
+
+router.get(
+  "/waste-history",
+  protect,
+  getUserWasteHistory
+);
+
+/*
+    @route   GET /api/users/admin/all-users
+*/
+
+router.get(
+  "/admin/all-users",
+  protect,
+  adminOnly,
+  (req, res) => {
+    res.json({
+      message: "Admin users route",
+    });
+  }
+);
+
+export default router;
