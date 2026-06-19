@@ -1,3 +1,11 @@
+import AIPrediction from "../models/AIPrediction.js";
+
+import {
+  classifyWasteImage,
+  generateWasteRecommendation,
+} from "../utils/aiService.js";
+
+
 export const classifyWaste = async (
   req,
   res
